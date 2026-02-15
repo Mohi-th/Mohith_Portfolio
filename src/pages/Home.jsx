@@ -10,9 +10,9 @@ export default function Home() {
     <div className=" text-gray-900 min-h-full w-full">
       <Navbar />
       <Hero />
-      <About />
+       <About />
       <Specializations />
-      <Projects />
+       <Projects />
       <Footer />
     </div>
   );

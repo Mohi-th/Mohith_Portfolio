@@ -6,18 +6,22 @@ function ProjectCard({ title, description, tags, githubUrl, liveUrl, image }) {
     return (
         <div className='bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col h-full'>
             {/* Project Image */}
-            <div className='w-full h-48 bg-gray-200'>
+            <div className='w-full h-48 md:h-52 bg-gradient-to-br from-gray-100 to-gray-200'>
                 {image ? (
                     <img src={image} alt={title} className='w-full h-full object-cover' />
                 ) : (
-                    <div className='w-full h-full bg-gray-200'></div>
+                    <div className='w-full h-full flex items-center justify-center'>
+                        <div className='text-gray-400 text-6xl font-bold opacity-20'>
+                            {title.charAt(0)}
+                        </div>
+                    </div>
                 )}
             </div>
 
             {/* Project Info */}
-            <div className='p-6 flex flex-col flex-grow'>
-                <h3 className='text-xl font-semibold mb-3'>{title}</h3>
-                <p className='text-sm text-gray-600 mb-4 flex-grow'>{description}</p>
+            <div className='p-5 md:p-6 flex flex-col flex-grow'>
+                <h3 className='text-lg md:text-xl font-semibold mb-3'>{title}</h3>
+                <p className='text-sm text-gray-600 mb-4 flex-grow line-clamp-2'>{description}</p>
 
                 {/* Tags */}
                 <div className='flex gap-2 mb-4 flex-wrap'>
@@ -31,7 +35,6 @@ function ProjectCard({ title, description, tags, githubUrl, liveUrl, image }) {
                     ))}
                 </div>
 
-                {/* Links */}
                 {/* Links */}
                 <div className='flex gap-4 items-center'>
                     {githubUrl && (
@@ -58,7 +61,6 @@ function ProjectCard({ title, description, tags, githubUrl, liveUrl, image }) {
                         </a>
                     )}
                 </div>
-
             </div>
         </div>
     )

@@ -71,7 +71,7 @@ function Footer() {
         {/* 🔹 Scroll To Top */}
         <figure
           onClick={scrollToTop}
-          className='cursor-pointer absolute right-100 bottom-10 mt-6 hover:scale-110 transition-transform duration-300'
+          className='cursor-pointer absolute right-10 bottom-10 mt-6 hover:scale-110 transition-transform duration-300'
           aria-label="Scroll to top"
         >
           <img 

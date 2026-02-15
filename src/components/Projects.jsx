@@ -63,10 +63,31 @@ function Projects() {
       liveUrl: "https://example.com",
       image: null
     },
-    // Add more projects as needed
   ];
 
-  const itemsPerPage = 3;
+  // Determine items per page based on screen size
+  const getItemsPerPage = () => {
+    if (typeof window !== 'undefined') {
+      const width = window.innerWidth;
+      if (width >= 1024) return 3;  // Desktop: 3 cards
+      if (width >= 768) return 2;   // Tablet: 2 cards
+      return 1;                      // Mobile: 1 card
+    }
+    return 3;
+  };
+
+  const [itemsPerPage, setItemsPerPage] = React.useState(getItemsPerPage());
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      setItemsPerPage(getItemsPerPage());
+      setCurrentIndex(0); // Reset to first slide on resize
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const maxIndex = Math.max(0, projects.length - itemsPerPage);
 
   const handlePrev = () => {
@@ -78,23 +99,23 @@ function Projects() {
   };
 
   return (
-    <section className='w-full py-12 mt-10 md:py-16 lg:py-20 bg-[#F4F4F4]'>
-      <div className='px-8 md:px-16 lg:px-40  mx-auto flex flex-col items-center'>
+    <section className='w-full py-12 md:py-16 lg:py-20 mt-6 md:mt-10 bg-[#F4F4F4]'>
+      <div className='px-6 sm:px-12 md:px-16 lg:px-40 mx-auto flex flex-col items-center'>
         {/* Header */}
-        <div className='mb-8 flex flex-col items-start w-full '>
+        <div className='mb-8 flex flex-col items-start w-full'>
           <h2 className='text-2xl md:text-3xl font-semibold mb-2'>Projects</h2>
-          <p className='text-sm md:text-base text-gray-700'>
+          <p className='text-sm md:text-base text-gray-600'>
             here are the projects I developed, prototyped or participated in
           </p>
         </div>
 
         {/* Carousel Container */}
-        <div className='relative max-w-4xl'>
+        <div className='relative w-full max-w-6xl'>
           {/* Navigation Buttons */}
           <button
             onClick={handlePrev}
             disabled={currentIndex === 0}
-            className='absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 z-10 bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
+            className='absolute -left-4 md:-left-8 lg:-left-12 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
             aria-label="Previous projects"
           >
             <FaChevronLeft size={20} className='text-gray-700' />
@@ -103,24 +124,24 @@ function Projects() {
           <button
             onClick={handleNext}
             disabled={currentIndex >= maxIndex}
-            className='absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 z-10 bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
+            className='absolute -right-4 md:-right-8 lg:-right-12 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
             aria-label="Next projects"
           >
             <FaChevronRight size={20} className='text-gray-700' />
           </button>
 
-          {/* Projects Grid */}
+          {/* Projects Carousel */}
           <div className='overflow-hidden'>
             <div
-              className='flex transition-transform duration-500 ease-in-out gap-6'
+              className='flex transition-transform duration-500 ease-in-out gap-4 md:gap-5 lg:gap-6'
               style={{
-                transform: `translateX(-${currentIndex * (100 / itemsPerPage + 2)}%)`
+                transform: `translateX(-${currentIndex * (100 / itemsPerPage + (itemsPerPage === 1 ? 0 : itemsPerPage === 2 ? 1.5 : 2))}%)`
               }}
             >
               {projects.map((project, index) => (
                 <div
                   key={index}
-                  className='flex-shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]'
+                  className='flex-shrink-0 w-full md:w-[calc(50%-10px)] lg:w-[calc(33.333%-16px)]'
                 >
                   <ProjectCard {...project} />
                 </div>
@@ -129,7 +150,7 @@ function Projects() {
           </div>
         </div>
 
-        {/* Dots Indicator (Optional) */}
+        {/* Dots Indicator */}
         <div className='flex justify-center gap-2 mt-8'>
           {Array.from({ length: maxIndex + 1 }).map((_, index) => (
             <button
