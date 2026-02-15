@@ -12,7 +12,7 @@ function Navbar() {
       <figure className='h-[51px] w-[51px]'>
         <img className="h-full w-full" src={ellipse} alt="ellipse" />
       </figure>
-      <div className='flex gap-50'>
+      <div className='gap-50 hidden lg:flex'>
         <ul className='flex text-[15px] gap-12'>
           {
             navItems?.map((navItem) => <li className='hover:underline'>
