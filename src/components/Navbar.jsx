@@ -3,7 +3,7 @@ import ellipse from '../assets/Ellipse2.jpg'
 import { Menu, X } from 'lucide-react'
 
 
-function Navbar() {
+function Navbar({ scrollToSection }) {
 
   const navItems = ["about me", "specializations", 'projects', 'contacts'];
 
@@ -22,18 +22,21 @@ function Navbar() {
       <div className='gap-50 hidden lg:flex'>
         <ul className='flex text-[15px] gap-12'>
           {
-            navItems?.map((navItem) => <li className='hover:underline'>
-              {navItem}
-            </li>)
+            navItems?.map((navItem, index) => (
+              <li
+                key={index}
+                onClick={() => scrollToSection(index)}
+                className='hover:underline cursor-pointer capitalize'
+              >
+                {navItem}
+              </li>
+            ))
           }
         </ul>
-        <div >
-          english
-        </div>
       </div>
 
       {/* Mobile Menu Button */}
-      <button 
+      <button
         className='lg:hidden p-2 hover:bg-gray-100 rounded-md transition-colors'
         onClick={() => setIsMenuOpen(!isMenuOpen)}
         aria-label="Toggle menu"
@@ -61,12 +64,15 @@ function Navbar() {
           <ul className='flex flex-col items-center gap-4'>
             {
               navItems?.map((navItem, index) => (
-                <li 
-                  key={index} 
+                <li
+                  key={index}
                   className='w-full text-center py-2 hover:bg-gray-50 rounded-md transition-colors cursor-pointer'
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => {
+                    scrollToSection(index);
+                    setIsMenuOpen(false);
+                  }}
                 >
-                  <a 
+                  <a
                     href={`#${navItem.replace(' ', '-')}`}
                     className='block text-base md:text-lg capitalize font-medium text-gray-700 hover:text-black'
                   >
@@ -76,13 +82,7 @@ function Navbar() {
               ))
             }
           </ul>
-
-          {/* Mobile Language Selector */}
-          <div className='flex justify-center pt-4 border-t border-gray-200'>
-            <button className='px-6 py-2 text-sm md:text-base border border-gray-300 rounded-md hover:bg-gray-50 transition-colors'>
-              English
-            </button>
-          </div>
+          
         </div>
       </div>
 

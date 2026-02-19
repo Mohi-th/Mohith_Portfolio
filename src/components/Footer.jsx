@@ -32,21 +32,21 @@ function Footer() {
   // 🔹 Links Data Array
   const links = [
     {
-      href: "mailto:natanaeloliveiramrtinsbr@gmail.com",
+      href: "mailto:mohithmohith880@gmail.com",
       icon: FaEnvelope,
-      text: "natanaeloliveiramrtinsbr@gmail.com",
+      text: "mohithmohith880@gmail.com",
       external: false
     },
     {
-      href: "https://github.com/natanaeldeveloper",
+      href: "https://github.com/Mohi-th",
       icon: FaGithub,
-      text: "github.com/natanaeldeveloper",
+      text: "github.com/Mohi-th",
       external: true
     },
     {
-      href: "https://www.linkedin.com/in/natanael-oliveira-martins",
+      href: "https://www.linkedin.com/in/mohith-b-673729273/",
       icon: FaLinkedin,
-      text: "www.linkedin.com/in/natanael-oliveira-martins",
+      text: "www.linkedin.com/in/mohith-b",
       external: true
     }
   ];

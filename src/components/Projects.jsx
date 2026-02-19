@@ -2,66 +2,73 @@
 import React, { useState } from 'react'
 import ProjectCard from './ProjectCard'
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import EComImg from"../assets/e-com.png"
+import ChatAppImg from "../assets/chat.png"
+import PlayArenaImg from "../assets/PlayArena.png"
+import NetflixImg from "../assets/Netflix.png"
+import CryptoTrackerImg from "../assets/Crypto.png"
+import WeatherAppImg from "../assets/weather.png"
+import TodoAppImg from "../assets/Todo1.png"
 
 function Projects() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const projects = [
     {
-      title: "Your project name",
-      description: "here are the projects I developed, prototyped or participated in",
-      tags: ["Desktop", "JAVA"],
-      githubUrl: "https://github.com",
-      liveUrl: "https://example.com",
-      image: null
+      title: "ShopCraze",
+      description: "A MERN-stack  e-commerce application with authentication, cart, payments, and admin management.",
+      tags: ["React","Node","cloudinary"],
+      githubUrl: "https://github.com/Mohi-th/E-commerce.git",
+      liveUrl: "https://e-commerce-1-3rvc.onrender.com",
+      image: EComImg
     },
     {
-      title: "Your project name",
-      description: "here are the projects I developed, prototyped or participated in",
-      tags: ["Desktop", "JAVA"],
-      githubUrl: "https://github.com",
-      liveUrl: "https://example.com",
-      image: null
+      title: "Chit-Chat",
+      description: "A real-time MERN chat application with secure authentication, Socket.io messaging, group chat, and responsive UI",
+      tags: ["React", "Node" , "socket.io"],
+      githubUrl: "https://github.com/Mohi-th/MERN_CHAT_APP.git",
+      liveUrl: "https://mern-chat-app-44l7.onrender.com/home",
+      image: ChatAppImg
     },
     {
-      title: "Your project name",
-      description: "here are the projects I developed, prototyped or participated in",
-      tags: ["Desktop", "JAVA"],
-      githubUrl: "https://github.com",
-      liveUrl: "https://example.com",
-      image: null
+      title: "Play Arena",
+      description: "An online platform to book birthday parties, video games, and sports activities.",
+      tags: ["React"],
+      githubUrl: "https://github.com/Mohi-th/PLAY_ARENA.git",
+      liveUrl: "https://play-arena-et4d.onrender.com/",
+      image: PlayArenaImg
     },
     {
-      title: "Your project name",
-      description: "here are the projects I developed, prototyped or participated in",
-      tags: ["Desktop", "JAVA"],
-      githubUrl: "https://github.com",
-      liveUrl: "https://example.com",
-      image: null
+      title: "Crypto Tracker",
+      description: "A real-time cryptocurrency price tracking web app built with the MERN stack.",
+      tags: ["React", "Shadcn"],
+      githubUrl: "https://github.com/Mohi-th/MERN_CRYPTO_TRACKER.git",
+      liveUrl: "https://mern-crypto-tracker.onrender.com",
+      image: CryptoTrackerImg
     },
     {
-      title: "Your project name",
-      description: "here are the projects I developed, prototyped or participated in",
-      tags: ["Desktop", "JAVA"],
-      githubUrl: "https://github.com",
-      liveUrl: "https://example.com",
-      image: null
+      title: "Netflix",
+      description: "A responsive Netflix homepage clone built using plain HTML and CSS.",
+      tags: ["Java script", "HTML" ,"CSS"],
+      githubUrl: "https://github.com/Mohi-th/Netflix.git",
+      liveUrl: "https://netflix-3b6x.onrender.com",
+      image: NetflixImg
     },
     {
-      title: "Your project name",
-      description: "here are the projects I developed, prototyped or participated in",
-      tags: ["Desktop", "JAVA"],
-      githubUrl: "https://github.com",
-      liveUrl: "https://example.com",
-      image: null
+      title: "TODO App",
+      description: "A React to-do list application for creating, editing, and managing tasks.",
+      tags: ["React"],
+      githubUrl: "https://github.com/Mohi-th/TODO_APP_MERN.git",
+      liveUrl: "https://todo-app-woyf.onrender.com",
+      image: TodoAppImg
     },
     {
-      title: "Your project name",
-      description: "here are the projects I developed, prototyped or participated in",
-      tags: ["Desktop", "JAVA"],
-      githubUrl: "https://github.com",
-      liveUrl: "https://example.com",
-      image: null
+      title: "Weather Tracker",
+      description: "A weather application that shows current weather and forecast information using HTML, CSS, and JavaScript.",
+      tags: ["Java script", "HTML" ,"CSS"],
+      githubUrl: "https://github.com/Mohi-th/Weather-App.git",
+      liveUrl: "https://weather-app-pjn5.onrender.com",
+      image: WeatherAppImg
     },
   ];
 
