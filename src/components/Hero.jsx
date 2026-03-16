@@ -9,8 +9,8 @@ function Hero() {
   return (
     <section className='flex flex-col md:flex-row justify-between px-6 sm:px-12 md:px-20 lg:px-40 items-center py-8 md:py-0'>
       <div className='flex gap-4 sm:gap-6 md:gap-8 items-center'>
-        <figure className='relative h-[80px] w-[80px] sm:h-[100px] sm:w-[100px] md:h-[115px] md:w-[115px]'>
-          <img className='rounded-full' src={profile} alt="profile" />
+        <figure className='relative  h-[80px] w-[80px] sm:h-[100px] sm:w-[100px] md:h-[115px] md:w-[115px]'>
+          <img className='rounded-full object-cover w-full h-full object-top' src={profile} alt="profile" />
           <figure className='p-0.5 border rounded-full border-gray-300 h-[23px] w-[23px] absolute right-0 bottom-2'>
           <img className='h-full w-full' src={flag}/>
           </figure>
