@@ -9,11 +9,20 @@ import NetflixImg from "../assets/Netflix.png"
 import CryptoTrackerImg from "../assets/Crypto.png"
 import WeatherAppImg from "../assets/weather.png"
 import TodoAppImg from "../assets/Todo1.png"
+import GolfDrawImg  from "../assets/golf.png"
 
 function Projects() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const projects = [
+    {
+  title: "GolfDraw",
+  description: "A full-stack SaaS platform where users subscribe to participate in monthly prize draws, track golf scores, and contribute a portion of their subscription to selected charities.",
+  tags: ["MERN","Stripe",],
+  githubUrl: "https://github.com/Mohi-th/Golf-charity.git", // replace with your repo
+  liveUrl: "https://golf-charity-steel.vercel.app/", // replace with deployed link
+  image: GolfDrawImg
+},
     {
       title: "ShopCraze",
       description: "A MERN-stack  e-commerce application with authentication, cart, payments, and admin management.",
