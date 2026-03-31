@@ -1,19 +1,22 @@
 // Footer.jsx
-import React from 'react'
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 import arrow from '../assets/arrow.png'
+import useScrollReveal from '../hooks/useScrollReveal';
 
-/* 🔹 Reusable Link Component */
+/* Reusable Link Component */
 function ContactLink({ href, icon: Icon, text, external }) {
   return (
     <a
       href={href}
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
-      className='flex items-center justify-center gap-3  '
+      className='flex items-center justify-center gap-3'
     >
-      <Icon className="text-black" size={20} />
-      <span className='text-sm text-black md:text-base text-[10px] hover:underline transition-all'>
+      <Icon size={20} style={{ color: 'var(--icon-color)' }} />
+      <span
+        className='text-sm md:text-base hover:underline transition-all'
+        style={{ color: 'var(--text-secondary)' }}
+      >
         {text}
       </span>
     </a>
@@ -21,15 +24,12 @@ function ContactLink({ href, icon: Icon, text, external }) {
 }
 
 function Footer() {
+  const { ref, isVisible } = useScrollReveal();
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // 🔹 Links Data Array
   const links = [
     {
       href: "mailto:mohithmohith880@gmail.com",
@@ -52,10 +52,17 @@ function Footer() {
   ];
 
   return (
-    <footer className='w-full py-12 md:py-16 bg-white border-t border-gray-200 relative'>
-      <div className='px-8 md:px-16 lg:px-40 max-w-7xl mx-auto flex flex-col items-center gap-6'>
+    <footer
+      ref={ref}
+      className='w-full py-12 md:py-16 relative'
+      style={{
+        backgroundColor: 'var(--bg-primary)',
+        borderTop: '1px solid var(--border-color)',
+      }}
+    >
+      <div className={`px-8 md:px-16 lg:px-40 max-w-7xl mx-auto flex flex-col items-center gap-6 scroll-reveal ${isVisible ? 'visible' : ''}`}>
 
-        {/* 🔹 Contact Links using map */}
+        {/* Contact Links */}
         <div className='flex flex-col gap-4 items-start text-center'>
           {links.map((link, index) => (
             <ContactLink
@@ -68,15 +75,15 @@ function Footer() {
           ))}
         </div>
 
-        {/* 🔹 Scroll To Top */}
+        {/* Scroll To Top — original arrow.png style */}
         <figure
           onClick={scrollToTop}
           className='cursor-pointer absolute right-10 bottom-10 mt-6 hover:scale-110 transition-transform duration-300'
           aria-label="Scroll to top"
         >
-          <img 
-            src={arrow} 
-            alt="Scroll to top" 
+          <img
+            src={arrow}
+            alt="Scroll to top"
             className='w-8 h-8'
           />
         </figure>

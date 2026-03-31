@@ -17,12 +17,11 @@ export default function Home() {
   };
 
   return (
-    <div className="text-gray-900 min-h-full w-full">
+    <div className="min-h-full w-full" style={{ color: 'var(--text-primary)' }}>
 
-      {/* Pass scroll function */}
       <Navbar scrollToSection={scrollToSection} />
 
-        <Hero />
+      <Hero />
 
       <div ref={(el) => (sectionRefs.current[0] = el)}>
         <About />
