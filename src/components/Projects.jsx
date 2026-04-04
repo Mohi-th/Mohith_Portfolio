@@ -10,6 +10,7 @@ import CryptoTrackerImg from "../assets/Crypto.png"
 import WeatherAppImg from "../assets/weather.png"
 import TodoAppImg from "../assets/Todo1.png"
 import GolfDrawImg from "../assets/golf.png"
+import MetaCareImg from "../assets/meta_care.png"
 import useScrollReveal from '../hooks/useScrollReveal';
 
 function Projects() {
@@ -34,6 +35,14 @@ function Projects() {
       liveUrl: "https://e-commerce-1-3rvc.onrender.com",
       image: EComImg
     },
+    {
+  title: "MetaCare",
+  description: "A full-stack telemedicine platform for pregnancy care featuring real-time doctor–patient video consultations, AI-powered summaries, pregnancy risk prediction, appointment scheduling, and personalized diet planning.",
+  tags: ["MERN","WebRTC", "Socket.IO","Firebase"],
+  githubUrl: "https://github.com/Mohi-th/MERN_Meta_Care.git",
+  liveUrl: "https://mern-meta-care.onrender.com",
+  image: MetaCareImg,
+},
     {
       title: "Chit-Chat",
       description: "A real-time MERN chat application with secure authentication, Socket.io messaging, group chat, and responsive UI.",
